@@ -8,7 +8,8 @@ def q1
   # names[4] = "斉藤"
 
   # pushでも可
-  names.push("斉藤")
+  # names.push("斉藤")
+  names << "斉藤"
   puts names
 end
 
@@ -17,10 +18,10 @@ def q2
   array2 = ["bird", "bat", "tiger"]
 
   # 以下に回答を記載
-  # array = array1 + array2
+  array = array1 + array2
 
-  # concatでも可
-  array = array1.concat array2
+  # concatでも可 => 破壊的メソッドで元の配列につなげる場面で使用。
+  # array = array1.concat array2
   puts array
 end
 
@@ -35,7 +36,9 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete(nil)
+  # sports.delete(nil)
+
+  sports.compact!
   # 以下は変更しないで下さい
   p sports
 end
