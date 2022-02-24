@@ -162,7 +162,19 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  def initialize(user)
+    @name = user[:name]
+    @age = user[:age]
+    @gender = user[:gender]
+  end
 
+  def info
+    puts <<~TEXT
+      名前：#{@name}
+      年齢：#{@age}
+      性別：#{@gender}
+    TEXT
+  end
 end
 
 def q17
