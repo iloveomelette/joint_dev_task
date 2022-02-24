@@ -225,12 +225,38 @@ end
 
 class UserQ20
   # 以下に回答を記載
-
+  attr_reader :name, :age
+  def initialize(user_info)
+    @name = user_info[:name]
+    @age = user_info[:age]
+  end
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(zoo_info)
+    @name = zoo_info[:name]
+    @entry_fee = zoo_info[:entry_fee]
+  end
 
+  def show_price_msg(user, entry_fee)
+    puts "#{user.name}さんの入場料金は #{entry_fee} 円です。"
+  end
+
+  def info_entry_fee(user)
+    case user.age
+    when 0..5
+      show_price_msg(user, @entry_fee[:infant])
+    when 6..12
+      show_price_msg(user, @entry_fee[:children])
+    when 13..64
+      show_price_msg(user, @entry_fee[:adult])
+    when 65..120
+      show_price_msg(user, @entry_fee[:senior])
+    else
+      show_price_msg(user, '???')
+    end
+  end
 end
 
 
